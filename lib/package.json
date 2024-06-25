@@ -1,0 +1,51 @@
+{
+    "name": "@splitflow/react",
+    "version": "1.0.0",
+    "description": "Splitflow react package",
+    "author": "team@splitflow.io",
+    "homepage": "https://github.com/splitflow/react#readme",
+    "bugs": {
+        "url": "https://github.com/splitflow/react/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/splitflow/react.git"
+    },
+    "type": "module",
+    "files": [
+        "dist/**/*.js",
+        "dist/**/*.cjs",
+        "dist/**/*.d.ts"
+    ],
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs",
+            "types": "./dist/index.d.ts"
+        }
+    },
+    "typesVersions": {
+        "*": {
+            "*": [
+                "dist/index.d.ts"
+            ]
+        }
+    },
+    "scripts": {
+        "build": "tsup",
+        "build:watch": "tsup --watch"
+    },
+    "peerDependencies": {
+        "react": ">=16.3.0",
+        "@splitflow/chart": ">=1.0.0"
+    },
+    "peerDependenciesMeta": {
+        "@splitflow/chart": {
+            "optional": true
+        }
+    },
+    "devDependencies": {
+        "tsup": "^8.1.0",
+        "typescript": "^5.5.2"
+    }
+}

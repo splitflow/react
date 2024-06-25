@@ -1,0 +1,32 @@
+{
+  "name": "example",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@splitflow/app": "^1.2.0",
+    "@splitflow/chart": "^1.0.0",
+    "@splitflow/css-reset": "^1.1.0",
+    "@splitflow/designer": "^2.3.0",
+    "@splitflow/lib": "^1.3.0",
+    "@splitflow/react": "^1.0.0",
+    "next": "14.2.3",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "prettier": "^3.3.2",
+    "typescript": "^5"
+  },
+  "overrides": {
+    "@types/react": "^18"
+  }
+}
