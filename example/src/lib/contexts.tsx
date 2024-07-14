@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useRef, useState } from 'react'
+import { createContext, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { AppBundle, SplitflowApp, createSplitflowApp } from '@splitflow/app'
 import { useServerInsertedHTML } from 'next/navigation'
 import { SSRRegistry, formatCss } from '@splitflow/designer'
@@ -15,6 +15,7 @@ import {
     createLineChartModule,
     createPieChartModule
 } from '@splitflow/chart'
+import { EditorModule, createDocumentBundle, createEditor, embed, type EditorBundle } from '@splitflow/editor'
 
 export const SsrRegistryContext = createContext<SSRRegistry>(undefined)
 
@@ -160,4 +161,52 @@ export function DatasourceProvider({
     })
 
     return <DatasourceContext.Provider value={value}>{children}</DatasourceContext.Provider>
+}
+
+export const EditorContext = createContext<EditorModule>(undefined)
+
+export function EditorProvider({
+    editorBundle,
+    children
+}: {
+    editorBundle: EditorBundle
+    children: React.ReactNode
+}) {
+    const app = useContext(SplitflowAppContext)
+
+    const [editor] = useState(() => {
+        const editor = createEditor(editorBundle, app).plugin(embed())
+        editor.initialize()
+        return editor
+    })
+
+    return <EditorContext.Provider value={editor}>{children}</EditorContext.Provider>
+}
+
+export interface DocumentManager {
+    save(): void
+}
+
+export const DocumentManagerContext = createContext<DocumentManager>(undefined)
+
+export function DocumentManagerProvider({ children }: { children: React.ReactNode }) {
+    const editor = useContext(EditorContext)
+
+    useEffect(() => {
+        const item = localStorage.getItem('document')
+        const document = item ? JSON.parse(item) : []
+        editor.updateDocument(createDocumentBundle(document))
+    }, [editor])
+
+    const manager = useMemo(
+        () => ({
+            save() {
+                const document = editor.document.get()
+                localStorage.setItem('document', JSON.stringify(document))
+            }
+        }),
+        [editor]
+    )
+
+    return <DocumentManagerContext.Provider value={manager}>{children}</DocumentManagerContext.Provider>
 }

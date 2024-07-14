@@ -1,6 +1,6 @@
 {
     "name": "@splitflow/react",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Splitflow react package",
     "author": "team@splitflow.io",
     "homepage": "https://github.com/splitflow/react#readme",
@@ -36,11 +36,15 @@
         "build:watch": "tsup --watch"
     },
     "peerDependencies": {
-        "react": ">=16.3.0",
-        "@splitflow/chart": ">=1.0.0"
+        "@splitflow/chart": ">=1.0.0",
+        "@splitflow/editor": ">=1.2.0",
+        "react": ">=16.3.0"
     },
     "peerDependenciesMeta": {
         "@splitflow/chart": {
+            "optional": true
+        },
+        "@splitflow/editor": {
             "optional": true
         }
     },

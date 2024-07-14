@@ -13,6 +13,7 @@
     "@splitflow/chart": "^1.0.0",
     "@splitflow/css-reset": "^1.1.0",
     "@splitflow/designer": "^2.3.0",
+    "@splitflow/editor": "^1.2.0",
     "@splitflow/lib": "^1.3.0",
     "@splitflow/react": "^1.0.0",
     "next": "14.2.3",

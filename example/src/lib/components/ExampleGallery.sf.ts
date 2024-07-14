@@ -47,9 +47,9 @@ export const style = _createStyle('ExampleGallery', {
     },
     "root": {
         "layout": {
-            "direction": "column",
+            "direction": "row",
             "mainAxisAlignment": "center",
-            "crossAxisAlignment": "stretch",
+            "crossAxisAlignment": "center",
             "spacing": 1
         },
         "position": {

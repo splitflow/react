@@ -16,6 +16,13 @@ export function ExampleGallery() {
                 <h1 className={style.title()}>Dashboard</h1>
                 <p className={style.description()}>Showcase the Splitflow Chart module</p>
             </article>
+            <article
+                className={style.example()}
+                onClick={() => router.push('/document')}
+            >
+                <h1 className={style.title()}>Document</h1>
+                <p className={style.description()}>Showcase the Splitflow Text Editor module</p>
+            </article>
         </section>
     )
 }

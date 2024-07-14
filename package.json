@@ -2,5 +2,8 @@
     "workspaces": [
         "lib",
         "example"
-    ]
+    ],
+    "dependencies": {
+        "@splitflow/editor": "file:../editor"
+    }
 }
